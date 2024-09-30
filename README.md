@@ -1,4 +1,4 @@
-# Enrollment-Projection
+# Enrollment Projection
 
 # International Student Enrollment Prediction
 
