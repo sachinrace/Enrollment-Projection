@@ -11,7 +11,7 @@ This project is a web application built using Flask that predicts future interna
 - [Installation](#installation)
 - [Usage](#usage)
 - [How It Works](#how-it-works)
-- [Contributing](#contributing)
+
 
 
 ## Technologies Used
