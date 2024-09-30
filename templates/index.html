@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Student Enrollment Predictions</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>International Student Enrollment Predictions</h1>
+    <canvas id="predictionChart"></canvas>
+    <p id="accuracy"></p>
+
+    <script>
+        // Fetch predictions from Flask
+        fetch('/predict')
+            .then(response => response.json())
+            .then(data => {
+                let years = data.years;
+                let enrollments = data.enrollments;
+                let accuracy = data.accuracy;
+
+                // Display accuracy
+                document.getElementById('accuracy').innerText = 'Prediction Accuracy: ' + accuracy.toFixed(2) + '%';
+
+                // Create the chart using Chart.js
+                const ctx = document.getElementById('predictionChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: years,
+                        datasets: [{
+                            label: 'Predicted Enrollment',
+                            data: enrollments,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
 
