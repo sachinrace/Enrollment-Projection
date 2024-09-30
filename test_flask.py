@@ -10,7 +10,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the CSV data
-df = pd.read_csv(r'C:\Users\sparmar\OneDrive - Northwestern Polytechnic\Documents\Experiment\Programming\Python\RockPaperScissor-Random\enrollment.csv')
+df = pd.read_csv(file path for enrolment data)
 
 # Preprocess the data and train the model
 def train_model():
